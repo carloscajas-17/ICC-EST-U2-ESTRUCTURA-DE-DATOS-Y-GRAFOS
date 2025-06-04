@@ -70,6 +70,21 @@ public class Stack {
 
 
     }
+    public int size(){
+        int count = 0;
+        Node current = top;
+        while (current != null) {
+            count++;
+            current = current.getNext();
+            System.out.println(count);
+        }
+        return count;
+        
+
+       
+
+
+    }
 
     
 
