@@ -15,7 +15,7 @@ public class Node{
 
     @Override
     public String toString() {
-        return "Node [value=" + value + ", next=" + next + "]"; // EL NEXT ES EL SIGUIENTE NODO VA EN SECUENCIA AL USAR EL NEXT POR INTERMAENTE TIENE SU TO STRING  Y SE IMPRIME TODO
+        return "Node [value=" + value + ", next=" + next + "]"; // EL NEXT ES EL SIGUIENTE NODO VA EN SECUENCIA AL USAR EL NEXT POR INTERMAENTE TIENE SU TO STRING  Y SE IMPRIME TODOS
     }
 
 

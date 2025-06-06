@@ -3,6 +3,7 @@ package Controllers;
 import java.util.EmptyStackException;
 
 import Materia.Models.NodeGeneric;
+import Materia.Models.Persona;
 
 public class ColaG<T> {
 
@@ -68,5 +69,42 @@ public class ColaG<T> {
         }
         System.out.println();
     }
-    
+    // 🔍 Buscar por nombre
+    public T findByName(String name) {
+        NodeGeneric<T> current = primero;
+        while (current != null) {
+            if (current.getValue() instanceof Persona) {
+                Persona p = (Persona) current.getValue();
+                if (p.getNombre().equals(name)) {
+                    return current.getValue();
+                }
+            }
+            current = current.getNext();
+        }
+        return null;
+    }
+
+    // ❌ Eliminar por nombre
+    public T removeByName(String name) {
+        NodeGeneric<T> current = primero;
+        NodeGeneric<T> prev = null;
+
+        while (current != null) {
+            if (current.getValue() instanceof Persona) {
+                Persona p = (Persona) current.getValue();
+                if (p.getNombre().equals(name)) {
+                    if (prev == null) {
+                        primero = current.getNext();
+                    } else {
+                        prev.setNext(current.getNext());
+                    }
+                    size--;
+                    return current.getValue();
+                }
+            }
+            prev = current;
+            current = current.getNext();
+        }
+        return null;
+    }
 }
